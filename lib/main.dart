@@ -4,27 +4,11 @@
 // 3) Split the app into three widgets: App, TextControl & Text
 
 import 'package:flutter/material.dart';
-import 'package:flutterassignment/text.dart';
 import 'package:flutterassignment/textcontrol.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() {
-    return _MyAppState();
-  }
-}
-
-class _MyAppState extends State<MyApp> {
-  String _appText = "This is the first text";
-
-  void _changeText(String newText) {
-    setState(() {
-      _appText = newText;
-    });
-  }
-
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -36,14 +20,7 @@ class _MyAppState extends State<MyApp> {
           body: Container(
             width: double.infinity,
             padding: EdgeInsets.all(10.0),
-            child: Column(
-              children: <Widget>[
-                AppText(
-                  appText: _appText,
-                ),
-                TextControl(changeText: _changeText)
-              ],
-            ),
+            child: TextControl(),
           )),
     );
   }
